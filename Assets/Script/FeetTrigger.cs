@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class FeetTrigger : MonoBehaviour
 {
+
     private PlayerMove playerMove;
 
     private void Start()
@@ -14,13 +15,13 @@ public class FeetTrigger : MonoBehaviour
         if (collision.CompareTag("Kontol"))
         {
             playerMove.AutoJump();
-            Destroy (GameObject.FindWithTag("Kontol"));
         }
+
 
         if (collision.CompareTag("KontolBuff"))
         {
             playerMove.AutoJumpBuff();
-            Destroy (GameObject.FindWithTag("KontolBuff"));
+            //Destroy (GameObject.FindWithTag("KontolBuff"));
         }
 
         if (collision.CompareTag("Dead"))

@@ -8,6 +8,9 @@ TagManager:
   - Kontol
   - KontolBuff
   - Dead
+  - Sikil
+  - AwanKanan
+  - AwanKiri
   layers:
   - Default
   - TransparentFX

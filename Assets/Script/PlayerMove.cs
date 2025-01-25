@@ -3,6 +3,7 @@ using System.Collections;
 
 public class PlayerMove : MonoBehaviour
 {
+    public AwanController awanController;
     public float KecepatanJatuh;
     public float moveSpeed = 5f;
     public float autoJumpForce = 5f;
@@ -30,9 +31,7 @@ public class PlayerMove : MonoBehaviour
 
     private void Update()
     {
-        KecepatanJatuh = rb.velocity.y;
-
-        Debug.Log("Tes : " + KecepatanJatuh);
+        
         float moveInput = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
 
@@ -106,5 +105,22 @@ public class PlayerMove : MonoBehaviour
         }
 
         gameObject.SetActive(false);
+    }
+
+    private void OnTriggerEnter2D (Collider2D collision)
+    {
+        if (collision.CompareTag("AwanKanan"))
+        {
+            awanController = collision.GetComponent<AwanController>();
+            awanController.DeteksiKanan();
+            
+        }
+
+        else if (collision.CompareTag("AwanKiri"))
+        {
+            awanController = collision.GetComponent<AwanController>();
+            awanController.DeteksiKiri();
+            
+        }
     }
 }
