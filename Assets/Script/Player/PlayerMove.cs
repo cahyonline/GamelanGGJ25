@@ -98,6 +98,7 @@ public class PlayerMove : MonoBehaviour
     {
         if (isDead) return;
         isDead = true;
+        Audio.Instance.Deathing();
 
         if (rb != null)
         {
@@ -142,6 +143,11 @@ public class PlayerMove : MonoBehaviour
     {
         SceneManager.LoadScene("Gameplay");
 
+    }
+
+    public void Restart2()
+    {
+        SceneManager.LoadScene("Gameplay2");
     }
 
     public void MainMenu()

@@ -28,6 +28,11 @@ public class ManagementScene : MonoBehaviour
         SceneManager.LoadScene("Gameplay");
     }
 
+    public void Retry2()
+    {
+        SceneManager.LoadScene("Gameplay2");
+    }
+
     public void Quit()
     {
         Application.Quit();

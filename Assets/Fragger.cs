@@ -10,6 +10,11 @@ public class Fragger : MonoBehaviour
         {
             SceneManager.LoadScene("WWCD");
         } 
+
+        if (col.CompareTag("Win2"))
+        {
+            SceneManager.LoadScene("WWCD2");
+        } 
     }
 
 }

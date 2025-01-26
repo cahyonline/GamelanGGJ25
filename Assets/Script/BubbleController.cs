@@ -45,12 +45,9 @@ public class BubbleController : MonoBehaviour
 {
     if (collision.CompareTag("Sikil") && !isDestroying)
     {
-        isDestroying = true; // Mencegah animasi diputar ulang
-
-        
-        animator.SetTrigger("isDestroy"); // Memutar animasi penghancuran
-
-        // Jalankan Coroutine untuk menghancurkan objek setelah animasi selesai
+        isDestroying = true; 
+        animator.SetTrigger("isDestroy");
+        Audio.Instance.NunoSfx();
         StartCoroutine(DestroyAfterAnimation());
     }
 }
@@ -65,6 +62,9 @@ private IEnumerator DestroyAfterAnimation()
 
     // Hancurkan game object
     Destroy(this.gameObject);
+    
+
+
 }
 
 }

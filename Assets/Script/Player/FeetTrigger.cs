@@ -18,6 +18,8 @@ public class FeetTrigger : MonoBehaviour
         if (collision.CompareTag("BubbleNormal"))
         {
             playerMove.AutoJump();
+            Audio.Instance.Jumpingu();
+            
         }
 
 
@@ -40,6 +42,11 @@ public class FeetTrigger : MonoBehaviour
         if (collision.CompareTag("Finish"))
         {
             SceneManager.LoadScene("Finish");
+        }
+
+        if (collision.CompareTag("Finish2"))
+        {
+            SceneManager.LoadScene("Finish2");
         }
     }
 }
