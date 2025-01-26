@@ -1,18 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
 public class ManagementScene : MonoBehaviour
 {
-    // Start is called before the first frame update
     void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
     {
         
     }
@@ -32,8 +23,13 @@ public class ManagementScene : MonoBehaviour
         SceneManager.LoadScene("Gameplay2");
     }
 
-       public void Retry()
+       public void Retry1()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene("Gameplay");
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 }

@@ -5,12 +5,14 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
-  - Kontol
-  - KontolBuff
   - Dead
   - Sikil
   - AwanKanan
   - AwanKiri
+  - BubbleNormal
+  - BubbleBuff
+  - BubbleZonk
+  - Win
   layers:
   - Default
   - TransparentFX

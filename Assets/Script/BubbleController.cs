@@ -1,7 +1,10 @@
 using UnityEngine;
+using System.Collections;
 
 public class BubbleController : MonoBehaviour
 {
+
+    public float destroyTime = 2f;
    
     public Animator animator; // Animator untuk platform
 
@@ -38,24 +41,30 @@ public class BubbleController : MonoBehaviour
         }
 }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+  private void OnTriggerEnter2D(Collider2D collision)
+{
+    if (collision.CompareTag("Sikil") && !isDestroying)
     {
-        if (collision.CompareTag("Sikil") && !isDestroying)
-        {
-            isDestroying = true; // Mencegah animasi diputar ulang
-            animator.SetBool("isDestroy", true); // Memutar animasi penghancuran
+        isDestroying = true; // Mencegah animasi diputar ulang
 
-            // Tunggu hingga animasi selesai, lalu hancurkan
-            StartCoroutine(DestroyAfterAnimation());
-        }
+        
+        animator.SetTrigger("isDestroy"); // Memutar animasi penghancuran
+
+        // Jalankan Coroutine untuk menghancurkan objek setelah animasi selesai
+        StartCoroutine(DestroyAfterAnimation());
     }
+}
 
-    private System.Collections.IEnumerator DestroyAfterAnimation()
-    {
-        // Tunggu hingga animasi selesai
-        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
+private IEnumerator DestroyAfterAnimation()
+{
+    // Dapatkan informasi tentang animasi yang sedang diputar
+    AnimatorStateInfo animationState = animator.GetCurrentAnimatorStateInfo(0);
 
-        // Hancurkan platform
-        Destroy(gameObject, 1.5f);
-    }
+    // Tunggu durasi animasi selesai
+    yield return new WaitForSeconds(animationState.length);
+
+    // Hancurkan game object
+    Destroy(this.gameObject);
+}
+
 }
